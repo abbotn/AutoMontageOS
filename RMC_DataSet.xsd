@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="RMC_DataSet" targetNamespace="http://tempuri.org/RMC_DataSet.xsd" xmlns:mstns="http://tempuri.org/RMC_DataSet.xsd" xmlns="http://tempuri.org/RMC_DataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="RMC_DataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="RMC_DataSet" msprop:Generator_UserDSName="RMC_DataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="VideoClip" msprop:Generator_TableClassName="VideoClipDataTable" msprop:Generator_TableVarName="tableVideoClip" msprop:Generator_TablePropName="VideoClip" msprop:Generator_RowDeletingName="VideoClipRowDeleting" msprop:Generator_RowChangingName="VideoClipRowChanging" msprop:Generator_RowEvHandlerName="VideoClipRowChangeEventHandler" msprop:Generator_RowDeletedName="VideoClipRowDeleted" msprop:Generator_UserTableName="VideoClip" msprop:Generator_RowChangedName="VideoClipRowChanged" msprop:Generator_RowEvArgName="VideoClipRowChangeEvent" msprop:Generator_RowClassName="VideoClipRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="FileName" msprop:Generator_ColumnVarNameInTable="columnFileName" msprop:Generator_ColumnPropNameInRow="FileName" msprop:Generator_ColumnPropNameInTable="FileNameColumn" msprop:Generator_UserColumnName="FileName" type="xs:string" />
+              <xs:element name="ModifiedDate" msprop:Generator_ColumnVarNameInTable="columnModifiedDate" msprop:Generator_ColumnPropNameInRow="ModifiedDate" msprop:Generator_ColumnPropNameInTable="ModifiedDateColumn" msprop:Generator_UserColumnName="ModifiedDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="UpVotes" msprop:Generator_ColumnVarNameInTable="columnUpVotes" msprop:Generator_ColumnPropNameInRow="UpVotes" msprop:Generator_ColumnPropNameInTable="UpVotesColumn" msprop:Generator_UserColumnName="UpVotes" type="xs:int" default="0" minOccurs="0" />
+              <xs:element name="DownVotes" msprop:Generator_ColumnVarNameInTable="columnDownVotes" msprop:Generator_ColumnPropNameInRow="DownVotes" msprop:Generator_ColumnPropNameInTable="DownVotesColumn" msprop:Generator_UserColumnName="DownVotes" type="xs:int" default="0" minOccurs="0" />
+              <xs:element name="LastPlayed" msprop:Generator_ColumnVarNameInTable="columnLastPlayed" msprop:Generator_ColumnPropNameInRow="LastPlayed" msprop:Generator_ColumnPropNameInTable="LastPlayedColumn" msprop:Generator_UserColumnName="LastPlayed" type="xs:dateTime" default="1970-01-01T00:00:00-05:00" minOccurs="0" />
+              <xs:element name="PlayCount" msprop:Generator_ColumnVarNameInTable="columnPlayCount" msprop:Generator_ColumnPropNameInRow="PlayCount" msprop:Generator_ColumnPropNameInTable="PlayCountColumn" msprop:Generator_UserColumnName="PlayCount" type="xs:int" default="0" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="VideoClipsKey1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:VideoClip" />
+      <xs:field xpath="mstns:FileName" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>
