@@ -245,7 +245,7 @@ Public Class Form1
                 GB_Playlist.Enabled = True
 
             Else
-                StatusLabel1.Text = "Clips cannot be balnk, please select a clips Folder."
+                StatusLabel1.Text = "Clips cannot be blank, please select a clips Folder."
             End If
 
             'End If
