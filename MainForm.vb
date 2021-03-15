@@ -3,7 +3,7 @@
 Imports System.IO
 Imports System.Security.Cryptography
 
-Public Class Form1
+Public Class MainForm
 
     Dim RMC_DS As New RMC_DataSet
     Dim RNG As New RNGCryptoServiceProvider

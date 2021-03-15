@@ -62,8 +62,8 @@ Public Class VLC_Form
 
     Private Sub VLC_Form_Shown(sender As Object, e As EventArgs) Handles Me.Shown
         Try
-            Form1.TB_VWidth.Text = VideoView1.Width.ToString
-            Form1.TB_VHeight.Text = VideoView1.Height.ToString
+            MainForm.TB_VWidth.Text = VideoView1.Width.ToString
+            MainForm.TB_VHeight.Text = VideoView1.Height.ToString
         Catch ex As Exception
 
         End Try
@@ -71,9 +71,9 @@ Public Class VLC_Form
 
     Private Sub VLC_Form_Resize(sender As Object, e As EventArgs) Handles Me.Resize
         Try
-            If Not Form1.TB_VWidth.Focused And Not Form1.TB_VHeight.Focused Then
-                Form1.TB_VWidth.Text = VideoView1.Width.ToString
-                Form1.TB_VHeight.Text = VideoView1.Height.ToString
+            If Not MainForm.TB_VWidth.Focused And Not MainForm.TB_VHeight.Focused Then
+                MainForm.TB_VWidth.Text = VideoView1.Width.ToString
+                MainForm.TB_VHeight.Text = VideoView1.Height.ToString
             End If
         Catch ex As Exception
 
@@ -95,7 +95,7 @@ Public Class VLC_Form
 
         ' Can use space to pause/resume
         If e.KeyChar = Chr(32) Then
-            Form1.B_Pause.PerformClick()
+            MainForm.B_Pause.PerformClick()
         End If
 
     End Sub
