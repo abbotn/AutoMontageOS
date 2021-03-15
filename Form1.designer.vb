@@ -25,7 +25,7 @@ Partial Class Form1
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.GB_Playlist = New System.Windows.Forms.GroupBox()
         Me.CB_Dupes = New System.Windows.Forms.CheckBox()
         Me.DGV_Playlist = New System.Windows.Forms.DataGridView()
         Me.B_Pause = New System.Windows.Forms.Button()
@@ -34,7 +34,7 @@ Partial Class Form1
         Me.Label8 = New System.Windows.Forms.Label()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.StatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.GB_ViewerConfig = New System.Windows.Forms.GroupBox()
         Me.CB_Lock = New System.Windows.Forms.CheckBox()
         Me.CB_EasyPeazy = New System.Windows.Forms.CheckBox()
         Me.Label7 = New System.Windows.Forms.Label()
@@ -67,18 +67,18 @@ Partial Class Form1
         Me.OpenFileDialog2 = New System.Windows.Forms.OpenFileDialog()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.Panel1.SuspendLayout()
-        Me.GroupBox2.SuspendLayout()
+        Me.GB_Playlist.SuspendLayout()
         CType(Me.DGV_Playlist, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.StatusStrip1.SuspendLayout()
-        Me.GroupBox1.SuspendLayout()
+        Me.GB_ViewerConfig.SuspendLayout()
         Me.SuspendLayout()
         '
         'Panel1
         '
-        Me.Panel1.Controls.Add(Me.GroupBox2)
+        Me.Panel1.Controls.Add(Me.GB_Playlist)
         Me.Panel1.Controls.Add(Me.Label8)
         Me.Panel1.Controls.Add(Me.StatusStrip1)
-        Me.Panel1.Controls.Add(Me.GroupBox1)
+        Me.Panel1.Controls.Add(Me.GB_ViewerConfig)
         Me.Panel1.Controls.Add(Me.B_FBD1)
         Me.Panel1.Controls.Add(Me.TB_VideoClips)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
@@ -87,22 +87,23 @@ Partial Class Form1
         Me.Panel1.Size = New System.Drawing.Size(684, 761)
         Me.Panel1.TabIndex = 0
         '
-        'GroupBox2
+        'GB_Playlist
         '
-        Me.GroupBox2.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+        Me.GB_Playlist.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.GroupBox2.Controls.Add(Me.CB_Dupes)
-        Me.GroupBox2.Controls.Add(Me.DGV_Playlist)
-        Me.GroupBox2.Controls.Add(Me.B_Pause)
-        Me.GroupBox2.Controls.Add(Me.B_GenList)
-        Me.GroupBox2.Controls.Add(Me.B_PlayList)
-        Me.GroupBox2.Location = New System.Drawing.Point(10, 417)
-        Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(662, 317)
-        Me.GroupBox2.TabIndex = 8
-        Me.GroupBox2.TabStop = False
-        Me.GroupBox2.Text = "Playlist"
+        Me.GB_Playlist.Controls.Add(Me.CB_Dupes)
+        Me.GB_Playlist.Controls.Add(Me.DGV_Playlist)
+        Me.GB_Playlist.Controls.Add(Me.B_Pause)
+        Me.GB_Playlist.Controls.Add(Me.B_GenList)
+        Me.GB_Playlist.Controls.Add(Me.B_PlayList)
+        Me.GB_Playlist.Enabled = False
+        Me.GB_Playlist.Location = New System.Drawing.Point(10, 417)
+        Me.GB_Playlist.Name = "GB_Playlist"
+        Me.GB_Playlist.Size = New System.Drawing.Size(662, 317)
+        Me.GB_Playlist.TabIndex = 8
+        Me.GB_Playlist.TabStop = False
+        Me.GB_Playlist.Text = "Playlist"
         '
         'CB_Dupes
         '
@@ -185,47 +186,46 @@ Partial Class Form1
         Me.StatusLabel1.Name = "StatusLabel1"
         Me.StatusLabel1.Size = New System.Drawing.Size(0, 17)
         '
-        'GroupBox1
+        'GB_ViewerConfig
         '
-        Me.GroupBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.GB_ViewerConfig.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.GroupBox1.Controls.Add(Me.CB_Lock)
-        Me.GroupBox1.Controls.Add(Me.CB_EasyPeazy)
-        Me.GroupBox1.Controls.Add(Me.Label7)
-        Me.GroupBox1.Controls.Add(Me.Label1)
-        Me.GroupBox1.Controls.Add(Me.Label11)
-        Me.GroupBox1.Controls.Add(Me.TB_PercUnPop)
-        Me.GroupBox1.Controls.Add(Me.Label10)
-        Me.GroupBox1.Controls.Add(Me.TB_VHeight)
-        Me.GroupBox1.Controls.Add(Me.TB_VWidth)
-        Me.GroupBox1.Controls.Add(Me.Label9)
-        Me.GroupBox1.Controls.Add(Me.TB_ViewerTitle)
-        Me.GroupBox1.Controls.Add(Me.B_Always)
-        Me.GroupBox1.Controls.Add(Me.TB_AlwaysPlay)
-        Me.GroupBox1.Controls.Add(Me.B_Intro)
-        Me.GroupBox1.Controls.Add(Me.TB_IntroClip)
-        Me.GroupBox1.Controls.Add(Me.Label6)
-        Me.GroupBox1.Controls.Add(Me.TB_AgeNew)
-        Me.GroupBox1.Controls.Add(Me.Label5)
-        Me.GroupBox1.Controls.Add(Me.TB_PercPop)
-        Me.GroupBox1.Controls.Add(Me.Label4)
-        Me.GroupBox1.Controls.Add(Me.TB_PercOld)
-        Me.GroupBox1.Controls.Add(Me.Label3)
-        Me.GroupBox1.Controls.Add(Me.TB_PercNew)
-        Me.GroupBox1.Controls.Add(Me.Label2)
-        Me.GroupBox1.Controls.Add(Me.TB_NumClips)
-        Me.GroupBox1.Location = New System.Drawing.Point(10, 73)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(663, 338)
-        Me.GroupBox1.TabIndex = 4
-        Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "Viewer Configuration"
+        Me.GB_ViewerConfig.Controls.Add(Me.CB_Lock)
+        Me.GB_ViewerConfig.Controls.Add(Me.CB_EasyPeazy)
+        Me.GB_ViewerConfig.Controls.Add(Me.Label7)
+        Me.GB_ViewerConfig.Controls.Add(Me.Label1)
+        Me.GB_ViewerConfig.Controls.Add(Me.Label11)
+        Me.GB_ViewerConfig.Controls.Add(Me.TB_PercUnPop)
+        Me.GB_ViewerConfig.Controls.Add(Me.Label10)
+        Me.GB_ViewerConfig.Controls.Add(Me.TB_VHeight)
+        Me.GB_ViewerConfig.Controls.Add(Me.TB_VWidth)
+        Me.GB_ViewerConfig.Controls.Add(Me.Label9)
+        Me.GB_ViewerConfig.Controls.Add(Me.TB_ViewerTitle)
+        Me.GB_ViewerConfig.Controls.Add(Me.B_Always)
+        Me.GB_ViewerConfig.Controls.Add(Me.TB_AlwaysPlay)
+        Me.GB_ViewerConfig.Controls.Add(Me.B_Intro)
+        Me.GB_ViewerConfig.Controls.Add(Me.TB_IntroClip)
+        Me.GB_ViewerConfig.Controls.Add(Me.Label6)
+        Me.GB_ViewerConfig.Controls.Add(Me.TB_AgeNew)
+        Me.GB_ViewerConfig.Controls.Add(Me.Label5)
+        Me.GB_ViewerConfig.Controls.Add(Me.TB_PercPop)
+        Me.GB_ViewerConfig.Controls.Add(Me.Label4)
+        Me.GB_ViewerConfig.Controls.Add(Me.TB_PercOld)
+        Me.GB_ViewerConfig.Controls.Add(Me.Label3)
+        Me.GB_ViewerConfig.Controls.Add(Me.TB_PercNew)
+        Me.GB_ViewerConfig.Controls.Add(Me.Label2)
+        Me.GB_ViewerConfig.Controls.Add(Me.TB_NumClips)
+        Me.GB_ViewerConfig.Enabled = False
+        Me.GB_ViewerConfig.Location = New System.Drawing.Point(10, 73)
+        Me.GB_ViewerConfig.Name = "GB_ViewerConfig"
+        Me.GB_ViewerConfig.Size = New System.Drawing.Size(663, 338)
+        Me.GB_ViewerConfig.TabIndex = 4
+        Me.GB_ViewerConfig.TabStop = False
+        Me.GB_ViewerConfig.Text = "Viewer Configuration"
         '
         'CB_Lock
         '
         Me.CB_Lock.AutoSize = True
-        Me.CB_Lock.Checked = True
-        Me.CB_Lock.CheckState = System.Windows.Forms.CheckState.Checked
         Me.CB_Lock.Location = New System.Drawing.Point(320, 40)
         Me.CB_Lock.Name = "CB_Lock"
         Me.CB_Lock.Size = New System.Drawing.Size(50, 17)
@@ -489,13 +489,13 @@ Partial Class Form1
         Me.Text = "Rate My Clips On Stream"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
-        Me.GroupBox2.ResumeLayout(False)
-        Me.GroupBox2.PerformLayout()
+        Me.GB_Playlist.ResumeLayout(False)
+        Me.GB_Playlist.PerformLayout()
         CType(Me.DGV_Playlist, System.ComponentModel.ISupportInitialize).EndInit()
         Me.StatusStrip1.ResumeLayout(False)
         Me.StatusStrip1.PerformLayout()
-        Me.GroupBox1.ResumeLayout(False)
-        Me.GroupBox1.PerformLayout()
+        Me.GB_ViewerConfig.ResumeLayout(False)
+        Me.GB_ViewerConfig.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -504,7 +504,7 @@ Partial Class Form1
     Friend WithEvents B_FBD1 As Button
     Friend WithEvents TB_VideoClips As TextBox
     Friend WithEvents FolderBrowserDialog1 As FolderBrowserDialog
-    Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents GB_ViewerConfig As GroupBox
     Friend WithEvents Label6 As Label
     Friend WithEvents TB_AgeNew As TextBox
     Friend WithEvents Label5 As Label
@@ -534,7 +534,7 @@ Partial Class Form1
     Friend WithEvents Label1 As Label
     Friend WithEvents Label8 As Label
     Friend WithEvents Label7 As Label
-    Friend WithEvents GroupBox2 As GroupBox
+    Friend WithEvents GB_Playlist As GroupBox
     Friend WithEvents DGV_Playlist As DataGridView
     Friend WithEvents B_GenList As Button
     Friend WithEvents B_PlayList As Button

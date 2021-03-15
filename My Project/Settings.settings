@@ -33,10 +33,10 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="VLC_FormWidth" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">960</Value>
+      <Value Profile="(Default)">976</Value>
     </Setting>
     <Setting Name="VLC_FormHeight" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">540</Value>
+      <Value Profile="(Default)">579</Value>
     </Setting>
     <Setting Name="CB_EasyPeazy" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
@@ -45,7 +45,7 @@
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="CB_Lock" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">True</Value>
+      <Value Profile="(Default)">False</Value>
     </Setting>
   </Settings>
 </SettingsFile>

@@ -48,8 +48,14 @@ Public Class Form1
                 SaveRestore_Controls(c, False)
             Next
 
-            FolderBrowserDialog1.SelectedPath = TB_VideoClips.Text
-            LoadClipsFolder()
+            If Not String.IsNullOrEmpty(TB_VideoClips.Text) Then
+                FolderBrowserDialog1.SelectedPath = TB_VideoClips.Text
+                LoadClipsFolder()
+                GB_ViewerConfig.Enabled = True
+                GB_Playlist.Enabled = True
+            Else
+                StatusLabel1.Text = "Please select a clips folder."
+            End If
 
         Catch ex As Exception
             StatusLabel1.Text = ex.Message
@@ -99,6 +105,8 @@ Public Class Form1
 
     Private Sub Form1_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
 
+        Dim sErrors As String = ""
+
         Try
             If Not VLC_Play_Thrd Is Nothing Then
                 VLC_Play_Thrd.Abort()
@@ -113,13 +121,13 @@ Public Class Form1
                 The_VLC_Form.StopVideo()
             End If
         Catch ex As Exception
-            MsgBox(ex.Message)
+            sErrors &= ex.Message & vbCrLf
         End Try
 
         Try
             The_VLC_Form.Close()
         Catch ex As Exception
-            MsgBox(ex.Message)
+            sErrors &= ex.Message & vbCrLf
         End Try
 
         Try
@@ -129,10 +137,20 @@ Public Class Form1
                 End If
             Next
         Catch ex As Exception
-            MsgBox(ex.Message)
+            sErrors &= ex.Message & vbCrLf
         End Try
 
-        RMC_DS.WriteXml(FolderBrowserDialog1.SelectedPath & RCM_DS_XML)
+        Try
+            If Not String.IsNullOrEmpty(FolderBrowserDialog1.SelectedPath) Then
+                RMC_DS.WriteXml(FolderBrowserDialog1.SelectedPath & RCM_DS_XML)
+            End If
+        Catch ex As Exception
+            sErrors &= ex.Message & vbCrLf
+        End Try
+
+        If Not String.IsNullOrEmpty(sErrors) Then
+            MsgBox(sErrors)
+        End If
 
     End Sub
 
@@ -150,6 +168,9 @@ Public Class Form1
 
                 OpenFileDialog1.InitialDirectory = FolderBrowserDialog1.SelectedPath
                 OpenFileDialog2.InitialDirectory = FolderBrowserDialog1.SelectedPath
+
+                GB_ViewerConfig.Enabled = True
+                GB_Playlist.Enabled = True
 
             End If
 
@@ -201,6 +222,7 @@ Public Class Form1
 
     End Sub
 
+
     Private Sub TB_VideoClips_LostFocus(sender As Object, e As EventArgs) Handles TB_VideoClips.LostFocus
 
         Try
@@ -219,6 +241,11 @@ Public Class Form1
                 FolderBrowserDialog1.SelectedPath = TB_VideoClips.Text
                 LoadClipsFolder()
 
+                GB_ViewerConfig.Enabled = True
+                GB_Playlist.Enabled = True
+
+            Else
+                StatusLabel1.Text = "Clips cannot be balnk, please select a clips Folder."
             End If
 
             'End If

@@ -176,7 +176,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("960")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("976")>  _
         Public Property VLC_FormWidth() As Integer
             Get
                 Return CType(Me("VLC_FormWidth"),Integer)
@@ -188,7 +188,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("540")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("579")>  _
         Public Property VLC_FormHeight() As Integer
             Get
                 Return CType(Me("VLC_FormHeight"),Integer)
@@ -224,7 +224,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("True")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
         Public Property CB_Lock() As Boolean
             Get
                 Return CType(Me("CB_Lock"),Boolean)
