@@ -15,13 +15,13 @@
       <Value Profile="(Default)">25</Value>
     </Setting>
     <Setting Name="TB_PercOld" Type="System.String" Scope="User">
-      <Value Profile="(Default)">25</Value>
+      <Value Profile="(Default)">100</Value>
     </Setting>
     <Setting Name="TB_PercPop" Type="System.String" Scope="User">
-      <Value Profile="(Default)">25</Value>
+      <Value Profile="(Default)">0</Value>
     </Setting>
     <Setting Name="TB_PercUnPop" Type="System.String" Scope="User">
-      <Value Profile="(Default)">25</Value>
+      <Value Profile="(Default)">0</Value>
     </Setting>
     <Setting Name="TB_AgeNew" Type="System.String" Scope="User">
       <Value Profile="(Default)">90</Value>
@@ -46,6 +46,9 @@
     </Setting>
     <Setting Name="CB_Lock" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="RCM_DS_XML" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
     </Setting>
   </Settings>
 </SettingsFile>

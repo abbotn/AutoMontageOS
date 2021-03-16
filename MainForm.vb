@@ -11,8 +11,6 @@ Public Class MainForm
     Dim VLC_Play_Thrd As Threading.Thread
     Public The_VLC_Form As VLC_Form = New VLC_Form
 
-    Const RCM_DS_XML As String = "\RMC_Data.xml"
-
     ' From VLC Source: \vlc-3.0.12\include\vlc_interface.h
     '#define EXTENSIONS_VIDEO_CSV "3g2", "3gp", "3gp2", "3gpp", "amv", "asf", "avi", "bik", "crf", "divx", "drc", "dv", "dvr-ms" \
     '                             "evo", "f4v", "flv", "gvi", "gxf", "iso", \
@@ -34,13 +32,15 @@ Public Class MainForm
                                                          ".rec", ".rm", ".rmvb", ".rpl", ".thp", ".tod", ".ts", ".tts", ".txd", ".vob", ".vro",
                                                          ".webm", ".wm", ".wmv", ".wtv", ".xesc"})
 
-    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub MainForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+        Dim s As String = Application.ExecutablePath
 
         The_VLC_Form.Show()
 
     End Sub
 
-    Private Sub Form1_Shown(sender As Object, e As EventArgs) Handles Me.Shown
+    Private Sub MainForm_Shown(sender As Object, e As EventArgs) Handles Me.Shown
 
         Try
 
@@ -103,7 +103,7 @@ Public Class MainForm
 
     End Function
 
-    Private Sub Form1_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
+    Private Sub MainForm_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
 
         Dim sErrors As String = ""
 
@@ -141,9 +141,9 @@ Public Class MainForm
         End Try
 
         Try
-            If Not String.IsNullOrEmpty(FolderBrowserDialog1.SelectedPath) Then
-                RMC_DS.WriteXml(FolderBrowserDialog1.SelectedPath & RCM_DS_XML)
-            End If
+
+            My.Settings.RCM_DS_XML = RMC_DS.GetXml()
+
         Catch ex As Exception
             sErrors &= ex.Message & vbCrLf
         End Try
@@ -259,13 +259,10 @@ Public Class MainForm
 
         Dim VC_row As RMC_DataSet.VideoClipRow
 
-        If File.Exists(FolderBrowserDialog1.SelectedPath & RCM_DS_XML) Then
-            RMC_DS.Clear()
-            RMC_DS.ReadXml(FolderBrowserDialog1.SelectedPath & RCM_DS_XML)
-        Else
-            ' Create blank DB.
-            RMC_DS.WriteXml(FolderBrowserDialog1.SelectedPath & RCM_DS_XML)
+        If Not String.IsNullOrEmpty(My.Settings.RCM_DS_XML) Then
+            RMC_DS.ReadXml(New StringReader(My.Settings.RCM_DS_XML))
         End If
+
 
         StatusLabel1.Text = "Loading clips folder"
 
@@ -301,7 +298,7 @@ Public Class MainForm
         Next
 
         RMC_DS.AcceptChanges()
-        RMC_DS.WriteXml(FolderBrowserDialog1.SelectedPath & RCM_DS_XML)
+        My.Settings.RCM_DS_XML = RMC_DS.GetXml
 
         StatusLabel1.Text = "Loaded clips folder: " & RMC_DS.VideoClip.Count & " clips found."
 
@@ -396,10 +393,10 @@ Public Class MainForm
 
             Else
 
-                iNew = CInt(If(String.IsNullOrEmpty(TB_PercNew.Text), "0", TB_PercNew.Text) / 100) * iTotal
-                iOld = CInt(If(String.IsNullOrEmpty(TB_PercOld.Text), "0", TB_PercOld.Text) / 100) * iTotal
-                iPop = CInt(If(String.IsNullOrEmpty(TB_PercPop.Text), "0", TB_PercPop.Text) / 100) * iTotal
-                iUnPop = CInt(If(String.IsNullOrEmpty(TB_PercUnPop.Text), "0", TB_PercUnPop.Text) / 100) * iTotal
+                iNew = CInt(If(String.IsNullOrEmpty(TB_PercNew.Text), "0", TB_PercNew.Text) / 100 * iTotal)
+                iOld = CInt(If(String.IsNullOrEmpty(TB_PercOld.Text), "0", TB_PercOld.Text) / 100 * iTotal)
+                iPop = CInt(If(String.IsNullOrEmpty(TB_PercPop.Text), "0", TB_PercPop.Text) / 100 * iTotal)
+                iUnPop = CInt(If(String.IsNullOrEmpty(TB_PercUnPop.Text), "0", TB_PercUnPop.Text) / 100 * iTotal)
 
                 NewOldDate = Now.AddDays(-CInt(TB_AgeNew.Text)) ' Subtract days from Now()
 
@@ -627,39 +624,47 @@ Public Class MainForm
                                                                             End Sub)
 
 
-                                                                     sFileName = clip.Cells("FileName").Value
+                                                                     Try
 
-                                                                     '+++ Play clip
-                                                                     sError = The_VLC_Form.PlayVideo(FolderBrowserDialog1.SelectedPath & "\" & sFileName)
+                                                                         ' The DGV is not bound to the main DB Table.
+                                                                         ' We have to update it manually.
+                                                                         clip.Cells("LastPlayed").Value = Now.Date
+                                                                         clip.Cells("PlayCount").Value += 1
 
-                                                                     If sError <> "" Then
-                                                                         Invoke(Sub()
-                                                                                    StatusLabel1.Text = sError.Replace(vbCr, " ").Replace(vbLf, "")
-                                                                                End Sub)
-                                                                         Continue For
-                                                                     End If
-                                                                     '---
+                                                                         sFileName = clip.Cells("FileName").Value
 
-                                                                     Do Until The_VLC_Form.IsPlaying
-                                                                         Threading.Thread.Sleep(10)
-                                                                     Loop
+                                                                         '+++ Play clip
+                                                                         sError = The_VLC_Form.PlayVideo(FolderBrowserDialog1.SelectedPath & "\" & sFileName)
 
-                                                                     Do Until Not The_VLC_Form.IsPlaying And Not The_VLC_Form.IsPaused
-                                                                         Threading.Thread.Sleep(10)
-                                                                     Loop
 
-                                                                     '+++
-                                                                     ' Update main DB Table
-                                                                     With RMC_DS.VideoClip.FindByFileName(sFileName)
-                                                                         .LastPlayed = Now.Date
-                                                                         .PlayCount += 1
-                                                                     End With
+                                                                         If sError <> "" Then
+                                                                             Invoke(Sub()
+                                                                                        StatusLabel1.Text = sError.Replace(vbCr, " ").Replace(vbLf, "")
+                                                                                    End Sub)
+                                                                             Continue For
+                                                                         End If
+                                                                         '---
 
-                                                                     ' The DGV is not bound to the main DB Table.
-                                                                     ' We have to update it manually.
-                                                                     clip.Cells("LastPlayed").Value = Now.Date
-                                                                     clip.Cells("PlayCount").Value += 1
-                                                                     '---
+                                                                         Do Until The_VLC_Form.IsPlaying
+                                                                             Threading.Thread.Sleep(10)
+                                                                         Loop
+
+                                                                         Do Until Not The_VLC_Form.IsPlaying And Not The_VLC_Form.IsPaused
+                                                                             Threading.Thread.Sleep(10)
+                                                                         Loop
+
+                                                                         '+++
+                                                                         ' Update main DB Table
+                                                                         With RMC_DS.VideoClip.FindByFileName(sFileName)
+                                                                             .LastPlayed = Now.Date
+                                                                             .PlayCount += 1
+                                                                         End With
+                                                                         '---
+
+                                                                     Catch ex As Exception
+
+                                                                     End Try
+
 
                                                                      The_VLC_Form.StopVideo()
                                                                      Threading.Thread.Sleep(300)
@@ -713,7 +718,7 @@ Public Class MainForm
                 B_Pause.Text = "Pause"
 
                 ' Write DB
-                RMC_DS.WriteXml(FolderBrowserDialog1.SelectedPath & RCM_DS_XML)
+                My.Settings.RCM_DS_XML = RMC_DS.GetXml
 
             End If
 
@@ -746,7 +751,7 @@ Public Class MainForm
 
     End Sub
 
-    Private Sub Form1_KeyPress(sender As Object, e As KeyPressEventArgs) Handles Me.KeyPress
+    Private Sub MainForm_KeyPress(sender As Object, e As KeyPressEventArgs) Handles Me.KeyPress
 
         ' Can use space to pause/resume
         If e.KeyChar = Chr(32) Then

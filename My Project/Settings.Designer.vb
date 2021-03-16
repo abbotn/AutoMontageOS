@@ -104,7 +104,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("25")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("100")>  _
         Public Property TB_PercOld() As String
             Get
                 Return CType(Me("TB_PercOld"),String)
@@ -116,7 +116,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("25")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("0")>  _
         Public Property TB_PercPop() As String
             Get
                 Return CType(Me("TB_PercPop"),String)
@@ -128,7 +128,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("25")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("0")>  _
         Public Property TB_PercUnPop() As String
             Get
                 Return CType(Me("TB_PercUnPop"),String)
@@ -231,6 +231,18 @@ Namespace My
             End Get
             Set
                 Me("CB_Lock") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property RCM_DS_XML() As String
+            Get
+                Return CType(Me("RCM_DS_XML"),String)
+            End Get
+            Set
+                Me("RCM_DS_XML") = value
             End Set
         End Property
     End Class

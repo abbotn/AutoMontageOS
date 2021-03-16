@@ -100,7 +100,7 @@ Partial Class MainForm
         Me.GB_Playlist.Enabled = False
         Me.GB_Playlist.Location = New System.Drawing.Point(10, 417)
         Me.GB_Playlist.Name = "GB_Playlist"
-        Me.GB_Playlist.Size = New System.Drawing.Size(662, 317)
+        Me.GB_Playlist.Size = New System.Drawing.Size(662, 319)
         Me.GB_Playlist.TabIndex = 8
         Me.GB_Playlist.TabStop = False
         Me.GB_Playlist.Text = "Playlist"
@@ -129,7 +129,7 @@ Partial Class MainForm
         Me.DGV_Playlist.Location = New System.Drawing.Point(6, 48)
         Me.DGV_Playlist.Name = "DGV_Playlist"
         Me.DGV_Playlist.ReadOnly = True
-        Me.DGV_Playlist.Size = New System.Drawing.Size(650, 269)
+        Me.DGV_Playlist.Size = New System.Drawing.Size(650, 265)
         Me.DGV_Playlist.TabIndex = 0
         '
         'B_Pause
@@ -279,7 +279,7 @@ Partial Class MainForm
         Me.TB_PercUnPop.Name = "TB_PercUnPop"
         Me.TB_PercUnPop.Size = New System.Drawing.Size(36, 20)
         Me.TB_PercUnPop.TabIndex = 10
-        Me.TB_PercUnPop.Text = "25"
+        Me.TB_PercUnPop.Text = "0"
         Me.TB_PercUnPop.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Label10
@@ -398,7 +398,7 @@ Partial Class MainForm
         Me.TB_PercPop.Name = "TB_PercPop"
         Me.TB_PercPop.Size = New System.Drawing.Size(36, 20)
         Me.TB_PercPop.TabIndex = 9
-        Me.TB_PercPop.Text = "25"
+        Me.TB_PercPop.Text = "0"
         Me.TB_PercPop.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Label4
@@ -416,7 +416,7 @@ Partial Class MainForm
         Me.TB_PercOld.Name = "TB_PercOld"
         Me.TB_PercOld.Size = New System.Drawing.Size(36, 20)
         Me.TB_PercOld.TabIndex = 8
-        Me.TB_PercOld.Text = "25"
+        Me.TB_PercOld.Text = "100"
         Me.TB_PercOld.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Label3
@@ -478,14 +478,14 @@ Partial Class MainForm
         '
         Me.OpenFileDialog2.Multiselect = True
         '
-        'Form1
+        'MainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(684, 761)
         Me.Controls.Add(Me.Panel1)
         Me.KeyPreview = True
-        Me.Name = "Form1"
+        Me.Name = "MainForm"
         Me.Text = "Rate My Clips On Stream"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()

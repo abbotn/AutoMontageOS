@@ -91,7 +91,7 @@ Public Class VLC_Form
 
     End Sub
 
-    Private Sub Form1_KeyPress(sender As Object, e As KeyPressEventArgs) Handles Me.KeyPress
+    Private Sub MainForm_KeyPress(sender As Object, e As KeyPressEventArgs) Handles Me.KeyPress
 
         ' Can use space to pause/resume
         If e.KeyChar = Chr(32) Then
