@@ -70,10 +70,10 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>09E17218124D24519A262A241C31CBCB689D3ADC</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>33A04B22790D98735FCE2552B42300CC96BFD97E</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>RateMyClipsOS_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>AutoMontageOS_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>
@@ -189,6 +189,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="AutoMontageOS_TemporaryKey.pfx" />
     <None Include="My Project\app.manifest" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
