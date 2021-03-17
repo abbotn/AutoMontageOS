@@ -80,7 +80,7 @@ Partial Class MainForm
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(684, 761)
+        Me.Panel1.Size = New System.Drawing.Size(555, 761)
         Me.Panel1.TabIndex = 0
         '
         'GB_Playlist
@@ -96,7 +96,7 @@ Partial Class MainForm
         Me.GB_Playlist.Enabled = False
         Me.GB_Playlist.Location = New System.Drawing.Point(10, 417)
         Me.GB_Playlist.Name = "GB_Playlist"
-        Me.GB_Playlist.Size = New System.Drawing.Size(662, 319)
+        Me.GB_Playlist.Size = New System.Drawing.Size(533, 319)
         Me.GB_Playlist.TabIndex = 8
         Me.GB_Playlist.TabStop = False
         Me.GB_Playlist.Text = "Playlist"
@@ -125,12 +125,12 @@ Partial Class MainForm
         Me.DGV_Playlist.Location = New System.Drawing.Point(6, 48)
         Me.DGV_Playlist.Name = "DGV_Playlist"
         Me.DGV_Playlist.ReadOnly = True
-        Me.DGV_Playlist.Size = New System.Drawing.Size(650, 265)
+        Me.DGV_Playlist.Size = New System.Drawing.Size(521, 265)
         Me.DGV_Playlist.TabIndex = 0
         '
         'B_Pause
         '
-        Me.B_Pause.Location = New System.Drawing.Point(581, 19)
+        Me.B_Pause.Location = New System.Drawing.Point(452, 17)
         Me.B_Pause.Name = "B_Pause"
         Me.B_Pause.Size = New System.Drawing.Size(75, 23)
         Me.B_Pause.TabIndex = 10
@@ -149,7 +149,7 @@ Partial Class MainForm
         'B_PlayList
         '
         Me.B_PlayList.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.B_PlayList.Location = New System.Drawing.Point(488, 19)
+        Me.B_PlayList.Location = New System.Drawing.Point(361, 17)
         Me.B_PlayList.Name = "B_PlayList"
         Me.B_PlayList.Size = New System.Drawing.Size(75, 23)
         Me.B_PlayList.TabIndex = 9
@@ -172,7 +172,7 @@ Partial Class MainForm
         Me.StatusStrip1.Location = New System.Drawing.Point(0, 739)
         Me.StatusStrip1.Name = "StatusStrip1"
         Me.StatusStrip1.Padding = New System.Windows.Forms.Padding(1, 0, 12, 0)
-        Me.StatusStrip1.Size = New System.Drawing.Size(684, 22)
+        Me.StatusStrip1.Size = New System.Drawing.Size(555, 22)
         Me.StatusStrip1.TabIndex = 5
         Me.StatusStrip1.Text = "StatusStrip1"
         '
@@ -210,7 +210,7 @@ Partial Class MainForm
         Me.GB_ViewerConfig.Enabled = False
         Me.GB_ViewerConfig.Location = New System.Drawing.Point(10, 73)
         Me.GB_ViewerConfig.Name = "GB_ViewerConfig"
-        Me.GB_ViewerConfig.Size = New System.Drawing.Size(663, 338)
+        Me.GB_ViewerConfig.Size = New System.Drawing.Size(534, 338)
         Me.GB_ViewerConfig.TabIndex = 4
         Me.GB_ViewerConfig.TabStop = False
         Me.GB_ViewerConfig.Text = "Viewer Configuration"
@@ -271,7 +271,7 @@ Partial Class MainForm
         Me.TB_VHeight.Name = "TB_VHeight"
         Me.TB_VHeight.Size = New System.Drawing.Size(36, 20)
         Me.TB_VHeight.TabIndex = 5
-        Me.TB_VHeight.Text = "540"
+        Me.TB_VHeight.Text = "720"
         Me.TB_VHeight.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'TB_VWidth
@@ -280,7 +280,7 @@ Partial Class MainForm
         Me.TB_VWidth.Name = "TB_VWidth"
         Me.TB_VWidth.Size = New System.Drawing.Size(36, 20)
         Me.TB_VWidth.TabIndex = 4
-        Me.TB_VWidth.Text = "960"
+        Me.TB_VWidth.Text = "1280"
         Me.TB_VWidth.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Label9
@@ -318,7 +318,7 @@ Partial Class MainForm
         Me.TB_AlwaysPlay.Multiline = True
         Me.TB_AlwaysPlay.Name = "TB_AlwaysPlay"
         Me.TB_AlwaysPlay.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-        Me.TB_AlwaysPlay.Size = New System.Drawing.Size(600, 72)
+        Me.TB_AlwaysPlay.Size = New System.Drawing.Size(471, 72)
         Me.TB_AlwaysPlay.TabIndex = 13
         '
         'B_Intro
@@ -336,7 +336,7 @@ Partial Class MainForm
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TB_IntroClip.Location = New System.Drawing.Point(55, 206)
         Me.TB_IntroClip.Name = "TB_IntroClip"
-        Me.TB_IntroClip.Size = New System.Drawing.Size(601, 20)
+        Me.TB_IntroClip.Size = New System.Drawing.Size(472, 20)
         Me.TB_IntroClip.TabIndex = 7
         '
         'Label6
@@ -427,7 +427,7 @@ Partial Class MainForm
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TB_VideoClips.Location = New System.Drawing.Point(57, 32)
         Me.TB_VideoClips.Name = "TB_VideoClips"
-        Me.TB_VideoClips.Size = New System.Drawing.Size(618, 20)
+        Me.TB_VideoClips.Size = New System.Drawing.Size(489, 20)
         Me.TB_VideoClips.TabIndex = 2
         '
         'OpenFileDialog2
@@ -438,11 +438,11 @@ Partial Class MainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(684, 761)
+        Me.ClientSize = New System.Drawing.Size(555, 761)
         Me.Controls.Add(Me.Panel1)
         Me.KeyPreview = True
         Me.Name = "MainForm"
-        Me.Text = "Rate My Clips On Stream"
+        Me.Text = "Auto Montage On Stream"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         Me.GB_Playlist.ResumeLayout(False)

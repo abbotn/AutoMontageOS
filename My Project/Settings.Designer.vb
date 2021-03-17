@@ -176,7 +176,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("976")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("1296")>  _
         Public Property VLC_FormWidth() As Integer
             Get
                 Return CType(Me("VLC_FormWidth"),Integer)
@@ -188,7 +188,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("579")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("759")>  _
         Public Property VLC_FormHeight() As Integer
             Get
                 Return CType(Me("VLC_FormHeight"),Integer)
@@ -243,6 +243,28 @@ Namespace My
             End Get
             Set
                 Me("RCM_DS_XML") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property MainForm_Location() As Global.System.Drawing.Point
+            Get
+                Return CType(Me("MainForm_Location"),Global.System.Drawing.Point)
+            End Get
+            Set
+                Me("MainForm_Location") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property VLC_Form_Location() As Global.System.Drawing.Point
+            Get
+                Return CType(Me("VLC_Form_Location"),Global.System.Drawing.Point)
+            End Get
+            Set
+                Me("VLC_Form_Location") = value
             End Set
         End Property
     End Class

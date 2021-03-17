@@ -64,6 +64,9 @@ Public Class VLC_Form
         Try
             MainForm.TB_VWidth.Text = VideoView1.Width.ToString
             MainForm.TB_VHeight.Text = VideoView1.Height.ToString
+
+            Me.Location = My.Settings.VLC_Form_Location
+
         Catch ex As Exception
 
         End Try
@@ -85,13 +88,18 @@ Public Class VLC_Form
         Try
             My.Settings.VLC_FormWidth = Me.Width.ToString
             My.Settings.VLC_FormHeight = Me.Height.ToString
+
+            If Me.Location.X >= 0 And Me.Location.Y >= 0 Then
+                My.Settings.VLC_Form_Location = Me.Location
+            End If
+
         Catch ex As Exception
 
         End Try
 
     End Sub
 
-    Private Sub MainForm_KeyPress(sender As Object, e As KeyPressEventArgs) Handles Me.KeyPress
+    Private Sub Form_KeyPress(sender As Object, e As KeyPressEventArgs) Handles Me.KeyPress
 
         ' Can use space to pause/resume
         If e.KeyChar = Chr(32) Then
@@ -99,6 +107,5 @@ Public Class VLC_Form
         End If
 
     End Sub
-
 
 End Class

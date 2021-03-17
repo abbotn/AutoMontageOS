@@ -44,6 +44,7 @@ Partial Class VLC_Form
         Me.ClientSize = New System.Drawing.Size(960, 540)
         Me.ControlBox = False
         Me.Controls.Add(Me.VideoView1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.KeyPreview = True
         Me.Name = "VLC_Form"
         Me.Text = "VLC Viewer"

@@ -57,6 +57,8 @@ Public Class MainForm
                 StatusLabel1.Text = "Please select a clips folder."
             End If
 
+            Me.Location = My.Settings.MainForm_Location
+
         Catch ex As Exception
             StatusLabel1.Text = ex.Message
         End Try
@@ -136,6 +138,11 @@ Public Class MainForm
                     Exit For
                 End If
             Next
+
+            If Me.Location.X >= 0 And Me.Location.Y >= 0 Then
+                My.Settings.MainForm_Location = Me.Location
+            End If
+
         Catch ex As Exception
             sErrors &= ex.Message & vbCrLf
         End Try

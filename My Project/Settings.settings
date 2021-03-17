@@ -33,10 +33,10 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="VLC_FormWidth" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">976</Value>
+      <Value Profile="(Default)">1296</Value>
     </Setting>
     <Setting Name="VLC_FormHeight" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">579</Value>
+      <Value Profile="(Default)">759</Value>
     </Setting>
     <Setting Name="CB_EasyPeazy" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
@@ -48,6 +48,12 @@
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="RCM_DS_XML" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="MainForm_Location" Type="System.Drawing.Point" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="VLC_Form_Location" Type="System.Drawing.Point" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
   </Settings>
