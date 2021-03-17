@@ -20,9 +20,9 @@ Option Explicit On
  Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
  Global.System.ComponentModel.ToolboxItem(true),  _
  Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema"),  _
- Global.System.Xml.Serialization.XmlRootAttribute("RMC_DataSet"),  _
+ Global.System.Xml.Serialization.XmlRootAttribute("AMOS_DataSet"),  _
  Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")>  _
-Partial Public Class RMC_DataSet
+Partial Public Class AMOS_DataSet
     Inherits Global.System.Data.DataSet
     
     Private tableVideoClip As VideoClipDataTable
@@ -128,7 +128,7 @@ Partial Public Class RMC_DataSet
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
     Public Overrides Function Clone() As Global.System.Data.DataSet
-        Dim cln As RMC_DataSet = CType(MyBase.Clone,RMC_DataSet)
+        Dim cln As AMOS_DataSet = CType(MyBase.Clone,AMOS_DataSet)
         cln.InitVars
         cln.SchemaSerializationMode = Me.SchemaSerializationMode
         Return cln
@@ -199,9 +199,9 @@ Partial Public Class RMC_DataSet
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
     Private Sub InitClass()
-        Me.DataSetName = "RMC_DataSet"
+        Me.DataSetName = "AMOS_DataSet"
         Me.Prefix = ""
-        Me.Namespace = "http://tempuri.org/RMC_DataSet.xsd"
+        Me.Namespace = "http://tempuri.org/AMOS_DataSet.xsd"
         Me.EnforceConstraints = true
         Me.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
         Me.tableVideoClip = New VideoClipDataTable()
@@ -225,7 +225,7 @@ Partial Public Class RMC_DataSet
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
     Public Shared Function GetTypedDataSetSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
-        Dim ds As RMC_DataSet = New RMC_DataSet()
+        Dim ds As AMOS_DataSet = New AMOS_DataSet()
         Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
         Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence()
         Dim any As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
@@ -287,10 +287,6 @@ Partial Public Class RMC_DataSet
         
         Private columnModifiedDate As Global.System.Data.DataColumn
         
-        Private columnUpVotes As Global.System.Data.DataColumn
-        
-        Private columnDownVotes As Global.System.Data.DataColumn
-        
         Private columnLastPlayed As Global.System.Data.DataColumn
         
         Private columnPlayCount As Global.System.Data.DataColumn
@@ -350,22 +346,6 @@ Partial Public Class RMC_DataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property UpVotesColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnUpVotes
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property DownVotesColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnDownVotes
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public ReadOnly Property LastPlayedColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnLastPlayed
@@ -417,9 +397,9 @@ Partial Public Class RMC_DataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function AddVideoClipRow(ByVal FileName As String, ByVal ModifiedDate As Date, ByVal UpVotes As Integer, ByVal DownVotes As Integer, ByVal LastPlayed As Date, ByVal PlayCount As Integer) As VideoClipRow
+        Public Overloads Function AddVideoClipRow(ByVal FileName As String, ByVal ModifiedDate As Date, ByVal LastPlayed As Date, ByVal PlayCount As Integer) As VideoClipRow
             Dim rowVideoClipRow As VideoClipRow = CType(Me.NewRow,VideoClipRow)
-            Dim columnValuesArray() As Object = New Object() {FileName, ModifiedDate, UpVotes, DownVotes, LastPlayed, PlayCount}
+            Dim columnValuesArray() As Object = New Object() {FileName, ModifiedDate, LastPlayed, PlayCount}
             rowVideoClipRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowVideoClipRow)
             Return rowVideoClipRow
@@ -450,8 +430,6 @@ Partial Public Class RMC_DataSet
         Friend Sub InitVars()
             Me.columnFileName = MyBase.Columns("FileName")
             Me.columnModifiedDate = MyBase.Columns("ModifiedDate")
-            Me.columnUpVotes = MyBase.Columns("UpVotes")
-            Me.columnDownVotes = MyBase.Columns("DownVotes")
             Me.columnLastPlayed = MyBase.Columns("LastPlayed")
             Me.columnPlayCount = MyBase.Columns("PlayCount")
         End Sub
@@ -463,10 +441,6 @@ Partial Public Class RMC_DataSet
             MyBase.Columns.Add(Me.columnFileName)
             Me.columnModifiedDate = New Global.System.Data.DataColumn("ModifiedDate", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnModifiedDate)
-            Me.columnUpVotes = New Global.System.Data.DataColumn("UpVotes", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnUpVotes)
-            Me.columnDownVotes = New Global.System.Data.DataColumn("DownVotes", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnDownVotes)
             Me.columnLastPlayed = New Global.System.Data.DataColumn("LastPlayed", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnLastPlayed)
             Me.columnPlayCount = New Global.System.Data.DataColumn("PlayCount", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
@@ -474,8 +448,6 @@ Partial Public Class RMC_DataSet
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("VideoClipsKey1", New Global.System.Data.DataColumn() {Me.columnFileName}, true))
             Me.columnFileName.AllowDBNull = false
             Me.columnFileName.Unique = true
-            Me.columnUpVotes.DefaultValue = CType(0,Integer)
-            Me.columnDownVotes.DefaultValue = CType(0,Integer)
             Me.columnLastPlayed.DefaultValue = CType(VideoClipDataTable.columnLastPlayed_defaultValue,Date)
             Me.columnPlayCount.DefaultValue = CType(0,Integer)
         End Sub
@@ -545,7 +517,7 @@ Partial Public Class RMC_DataSet
         Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
             Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
             Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence()
-            Dim ds As RMC_DataSet = New RMC_DataSet()
+            Dim ds As AMOS_DataSet = New AMOS_DataSet()
             Dim any1 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
             any1.Namespace = "http://www.w3.org/2001/XMLSchema"
             any1.MinOccurs = New Decimal(0)
@@ -650,36 +622,6 @@ Partial Public Class RMC_DataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property UpVotes() As Integer
-            Get
-                Try 
-                    Return CType(Me(Me.tableVideoClip.UpVotesColumn),Integer)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'UpVotes' in table 'VideoClip' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableVideoClip.UpVotesColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property DownVotes() As Integer
-            Get
-                Try 
-                    Return CType(Me(Me.tableVideoClip.DownVotesColumn),Integer)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'DownVotes' in table 'VideoClip' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableVideoClip.DownVotesColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Property LastPlayed() As Date
             Get
                 Try 
@@ -718,30 +660,6 @@ Partial Public Class RMC_DataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub SetModifiedDateNull()
             Me(Me.tableVideoClip.ModifiedDateColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function IsUpVotesNull() As Boolean
-            Return Me.IsNull(Me.tableVideoClip.UpVotesColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub SetUpVotesNull()
-            Me(Me.tableVideoClip.UpVotesColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function IsDownVotesNull() As Boolean
-            Return Me.IsNull(Me.tableVideoClip.DownVotesColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub SetDownVotesNull()
-            Me(Me.tableVideoClip.DownVotesColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _

@@ -39,8 +39,6 @@ Partial Class MainForm
         Me.CB_EasyPeazy = New System.Windows.Forms.CheckBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label11 = New System.Windows.Forms.Label()
-        Me.TB_PercUnPop = New System.Windows.Forms.TextBox()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.TB_VHeight = New System.Windows.Forms.TextBox()
         Me.TB_VWidth = New System.Windows.Forms.TextBox()
@@ -52,8 +50,6 @@ Partial Class MainForm
         Me.TB_IntroClip = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.TB_AgeNew = New System.Windows.Forms.TextBox()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.TB_PercPop = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.TB_PercOld = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -194,8 +190,6 @@ Partial Class MainForm
         Me.GB_ViewerConfig.Controls.Add(Me.CB_EasyPeazy)
         Me.GB_ViewerConfig.Controls.Add(Me.Label7)
         Me.GB_ViewerConfig.Controls.Add(Me.Label1)
-        Me.GB_ViewerConfig.Controls.Add(Me.Label11)
-        Me.GB_ViewerConfig.Controls.Add(Me.TB_PercUnPop)
         Me.GB_ViewerConfig.Controls.Add(Me.Label10)
         Me.GB_ViewerConfig.Controls.Add(Me.TB_VHeight)
         Me.GB_ViewerConfig.Controls.Add(Me.TB_VWidth)
@@ -207,8 +201,6 @@ Partial Class MainForm
         Me.GB_ViewerConfig.Controls.Add(Me.TB_IntroClip)
         Me.GB_ViewerConfig.Controls.Add(Me.Label6)
         Me.GB_ViewerConfig.Controls.Add(Me.TB_AgeNew)
-        Me.GB_ViewerConfig.Controls.Add(Me.Label5)
-        Me.GB_ViewerConfig.Controls.Add(Me.TB_PercPop)
         Me.GB_ViewerConfig.Controls.Add(Me.Label4)
         Me.GB_ViewerConfig.Controls.Add(Me.TB_PercOld)
         Me.GB_ViewerConfig.Controls.Add(Me.Label3)
@@ -263,24 +255,6 @@ Partial Class MainForm
         Me.Label1.Size = New System.Drawing.Size(340, 13)
         Me.Label1.TabIndex = 23
         Me.Label1.Text = "Clips that are always included - my faves. (Excluded from playlist count)"
-        '
-        'Label11
-        '
-        Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(502, 130)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(125, 13)
-        Me.Label11.TabIndex = 22
-        Me.Label11.Text = "Percent UnPopular Clips."
-        '
-        'TB_PercUnPop
-        '
-        Me.TB_PercUnPop.Location = New System.Drawing.Point(461, 127)
-        Me.TB_PercUnPop.Name = "TB_PercUnPop"
-        Me.TB_PercUnPop.Size = New System.Drawing.Size(36, 20)
-        Me.TB_PercUnPop.TabIndex = 10
-        Me.TB_PercUnPop.Text = "0"
-        Me.TB_PercUnPop.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Label10
         '
@@ -383,28 +357,10 @@ Partial Class MainForm
         Me.TB_AgeNew.Text = "90"
         Me.TB_AgeNew.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(202, 130)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(111, 13)
-        Me.Label5.TabIndex = 7
-        Me.Label5.Text = "Percent Popular Clips."
-        '
-        'TB_PercPop
-        '
-        Me.TB_PercPop.Location = New System.Drawing.Point(161, 127)
-        Me.TB_PercPop.Name = "TB_PercPop"
-        Me.TB_PercPop.Size = New System.Drawing.Size(36, 20)
-        Me.TB_PercPop.TabIndex = 9
-        Me.TB_PercPop.Text = "0"
-        Me.TB_PercPop.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(359, 130)
+        Me.Label4.Location = New System.Drawing.Point(236, 130)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(97, 13)
         Me.Label4.TabIndex = 5
@@ -412,7 +368,7 @@ Partial Class MainForm
         '
         'TB_PercOld
         '
-        Me.TB_PercOld.Location = New System.Drawing.Point(318, 127)
+        Me.TB_PercOld.Location = New System.Drawing.Point(195, 127)
         Me.TB_PercOld.Name = "TB_PercOld"
         Me.TB_PercOld.Size = New System.Drawing.Size(36, 20)
         Me.TB_PercOld.TabIndex = 8
@@ -507,8 +463,6 @@ Partial Class MainForm
     Friend WithEvents GB_ViewerConfig As GroupBox
     Friend WithEvents Label6 As Label
     Friend WithEvents TB_AgeNew As TextBox
-    Friend WithEvents Label5 As Label
-    Friend WithEvents TB_PercPop As TextBox
     Friend WithEvents Label4 As Label
     Friend WithEvents TB_PercOld As TextBox
     Friend WithEvents Label3 As Label
@@ -528,8 +482,6 @@ Partial Class MainForm
     Friend WithEvents Label10 As Label
     Friend WithEvents TB_VHeight As TextBox
     Friend WithEvents TB_VWidth As TextBox
-    Friend WithEvents Label11 As Label
-    Friend WithEvents TB_PercUnPop As TextBox
     Friend WithEvents ToolTip1 As ToolTip
     Friend WithEvents Label1 As Label
     Friend WithEvents Label8 As Label

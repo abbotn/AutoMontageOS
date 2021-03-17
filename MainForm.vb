@@ -5,9 +5,9 @@ Imports System.Security.Cryptography
 
 Public Class MainForm
 
-    Dim RMC_DS As New RMC_DataSet
+    Dim RMC_DS As New AMOS_DataSet
     Dim RNG As New RNGCryptoServiceProvider
-    Dim Playlist_dt As New RMC_DataSet.VideoClipDataTable
+    Dim Playlist_dt As New AMOS_DataSet.VideoClipDataTable
     Dim VLC_Play_Thrd As Threading.Thread
     Public The_VLC_Form As VLC_Form = New VLC_Form
 
@@ -257,7 +257,7 @@ Public Class MainForm
     End Sub
     Private Sub LoadClipsFolder()
 
-        Dim VC_row As RMC_DataSet.VideoClipRow
+        Dim VC_row As AMOS_DataSet.VideoClipRow
 
         If Not String.IsNullOrEmpty(My.Settings.RCM_DS_XML) Then
             RMC_DS.ReadXml(New StringReader(My.Settings.RCM_DS_XML))
@@ -275,13 +275,11 @@ Public Class MainForm
                 VC_row = RMC_DS.VideoClip.FindByFileName(FI.Name)
 
                 If VC_row Is Nothing Then
-                    RMC_DS.VideoClip.LoadDataRow({FI.Name, FI.LastWriteTime, Nothing, Nothing, Nothing, Nothing}, False)
+                    RMC_DS.VideoClip.LoadDataRow({FI.Name, FI.LastWriteTime, Nothing, Nothing}, False)
                 Else
                     ' If a clip is modified/trimmed with the same name, update the row and zero the counters.
                     If FI.LastWriteTime <> VC_row.ModifiedDate Then
                         VC_row.ModifiedDate = FI.LastWriteTime
-                        VC_row.UpVotes = 0
-                        VC_row.DownVotes = 0
                         VC_row.LastPlayed = "1/1/1970"
                         VC_row.PlayCount = 0
                     End If
@@ -365,8 +363,8 @@ Public Class MainForm
 
     Private Sub B_GenList_Click(sender As Object, e As EventArgs) Handles B_GenList.Click
 
-        Dim Temp_dt As New RMC_DataSet.VideoClipDataTable
-        Dim VC_row As RMC_DataSet.VideoClipRow
+        Dim Temp_dt As New AMOS_DataSet.VideoClipDataTable
+        Dim VC_row As AMOS_DataSet.VideoClipRow
 
         Dim iTotal As Integer
         Dim iNew As Integer
@@ -395,8 +393,6 @@ Public Class MainForm
 
                 iNew = CInt(If(String.IsNullOrEmpty(TB_PercNew.Text), "0", TB_PercNew.Text) / 100 * iTotal)
                 iOld = CInt(If(String.IsNullOrEmpty(TB_PercOld.Text), "0", TB_PercOld.Text) / 100 * iTotal)
-                iPop = CInt(If(String.IsNullOrEmpty(TB_PercPop.Text), "0", TB_PercPop.Text) / 100 * iTotal)
-                iUnPop = CInt(If(String.IsNullOrEmpty(TB_PercUnPop.Text), "0", TB_PercUnPop.Text) / 100 * iTotal)
 
                 NewOldDate = Now.AddDays(-CInt(TB_AgeNew.Text)) ' Subtract days from Now()
 
@@ -430,7 +426,7 @@ Public Class MainForm
 
 
             ' Build the Playlist.
-            Playlist_dt = New RMC_DataSet.VideoClipDataTable
+            Playlist_dt = New AMOS_DataSet.VideoClipDataTable
 
             '+++ Add the intro first
             If Not String.IsNullOrEmpty(TB_IntroClip.Text) Then
@@ -474,7 +470,7 @@ Public Class MainForm
                 VC_row = Temp_dt.Rows(iTemp)
 
                 If Playlist_dt.FindByFileName(VC_row.FileName) Is Nothing Then
-                    Playlist_dt.LoadDataRow({VC_row.FileName, VC_row.ModifiedDate, 0, 0, VC_row.LastPlayed, VC_row.PlayCount}, False)
+                    Playlist_dt.LoadDataRow({VC_row.FileName, VC_row.ModifiedDate, VC_row.LastPlayed, VC_row.PlayCount}, False)
                 End If
 
                 Temp_dt.Rows(iTemp).Delete()
@@ -514,17 +510,17 @@ Public Class MainForm
 
     End Sub
 
-    Private Sub FillTemp(iCount As Integer, ByRef Temp_dt As RMC_DataSet.VideoClipDataTable)
+    Private Sub FillTemp(iCount As Integer, ByRef Temp_dt As AMOS_DataSet.VideoClipDataTable)
 
-        Dim PreTemp_dt As New RMC_DataSet.VideoClipDataTable
-        Dim VC_row As RMC_DataSet.VideoClipRow
+        Dim PreTemp_dt As New AMOS_DataSet.VideoClipDataTable
+        Dim VC_row As AMOS_DataSet.VideoClipRow
         Dim iTemp As Integer
 
         If iCount = 0 Then Exit Sub
 
         For Each rowView As DataRowView In RMC_DS.VideoClip.DefaultView
             VC_row = rowView.Row
-            PreTemp_dt.LoadDataRow({VC_row.FileName, VC_row.ModifiedDate, 0, 0, VC_row.LastPlayed, VC_row.PlayCount}, False)
+            PreTemp_dt.LoadDataRow({VC_row.FileName, VC_row.ModifiedDate, VC_row.LastPlayed, VC_row.PlayCount}, False)
         Next
 
         Do Until PreTemp_dt.Count = 0
@@ -535,7 +531,7 @@ Public Class MainForm
             VC_row = PreTemp_dt.Rows(iTemp)
 
             If Temp_dt.FindByFileName(VC_row.FileName) Is Nothing Then
-                Temp_dt.LoadDataRow({VC_row.FileName, VC_row.ModifiedDate, 0, 0, VC_row.LastPlayed, VC_row.PlayCount}, False)
+                Temp_dt.LoadDataRow({VC_row.FileName, VC_row.ModifiedDate, VC_row.LastPlayed, VC_row.PlayCount}, False)
                 iCount -= 1
             End If
 
@@ -546,7 +542,7 @@ Public Class MainForm
     End Sub
 
     Private Sub TB_NumClips_TextChanged(sender As Object, e As EventArgs) Handles TB_NumClips.TextChanged,
-            TB_PercNew.TextChanged, TB_PercOld.TextChanged, TB_PercPop.TextChanged, TB_PercUnPop.TextChanged,
+            TB_PercNew.TextChanged, TB_PercOld.TextChanged,
             TB_AgeNew.TextChanged
 
         Dim TB As TextBox = sender
@@ -786,16 +782,12 @@ Public Class MainForm
         'TB_NumClips.Enabled = Not CB.Checked
         TB_PercNew.Enabled = Not CB.Checked
         TB_PercOld.Enabled = Not CB.Checked
-        TB_PercPop.Enabled = Not CB.Checked
-        TB_PercUnPop.Enabled = Not CB.Checked
         TB_AgeNew.Enabled = Not CB.Checked
 
         'Label2.Enabled = Not CB.Checked
         Label3.Enabled = Not CB.Checked
         Label4.Enabled = Not CB.Checked
-        Label5.Enabled = Not CB.Checked
         Label6.Enabled = Not CB.Checked
-        Label11.Enabled = Not CB.Checked
 
     End Sub
 

@@ -6,9 +6,9 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{9B95AC1C-8AB0-454E-B030-822035FAD6E7}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>RateMyClipsOS.My.MyApplication</StartupObject>
-    <RootNamespace>RateMyClipsOS</RootNamespace>
-    <AssemblyName>RateMyClipsOS</AssemblyName>
+    <StartupObject>AutoMontageOS.My.MyApplication</StartupObject>
+    <RootNamespace>AutoMontageOS</RootNamespace>
+    <AssemblyName>AutoMontageOS</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
@@ -43,7 +43,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>RateMyClipsOS.xml</DocumentationFile>
+    <DocumentationFile>AutoMontageOS.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -53,7 +53,7 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>RateMyClipsOS.xml</DocumentationFile>
+    <DocumentationFile>AutoMontageOS.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
@@ -158,10 +158,10 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="RMC_DataSet.Designer.vb">
+    <Compile Include="AMOS_DataSet.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>RMC_DataSet.xsd</DependentUpon>
+      <DependentUpon>AMOS_DataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="VLC_Form.designer.vb">
       <DependentUpon>VLC_Form.vb</DependentUpon>
@@ -196,17 +196,16 @@
     </None>
     <None Include="App.config" />
     <None Include="packages.config" />
-    <None Include="RateMyClipsOS_TemporaryKey.pfx" />
-    <None Include="RMC_DataSet.xsc">
-      <DependentUpon>RMC_DataSet.xsd</DependentUpon>
+    <None Include="AMOS_DataSet.xsc">
+      <DependentUpon>AMOS_DataSet.xsd</DependentUpon>
     </None>
-    <None Include="RMC_DataSet.xsd">
+    <None Include="AMOS_DataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>RMC_DataSet.Designer.vb</LastGenOutput>
+      <LastGenOutput>AMOS_DataSet.Designer.vb</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="RMC_DataSet.xss">
-      <DependentUpon>RMC_DataSet.xsd</DependentUpon>
+    <None Include="AMOS_DataSet.xss">
+      <DependentUpon>AMOS_DataSet.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
