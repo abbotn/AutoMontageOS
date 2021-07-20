@@ -268,6 +268,7 @@ Public Class MainForm
 
         If Not String.IsNullOrEmpty(My.Settings.RCM_DS_XML) Then
             RMC_DS.ReadXml(New StringReader(My.Settings.RCM_DS_XML))
+            RMC_DS.VideoClip.Clear()
         End If
 
 
