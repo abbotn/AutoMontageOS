@@ -267,8 +267,8 @@ Public Class MainForm
         Dim VC_row As AMOS_DataSet.VideoClipRow
 
         If Not String.IsNullOrEmpty(My.Settings.RCM_DS_XML) Then
-            RMC_DS.ReadXml(New StringReader(My.Settings.RCM_DS_XML))
             RMC_DS.VideoClip.Clear()
+            RMC_DS.ReadXml(New StringReader(My.Settings.RCM_DS_XML))
         End If
 
 
